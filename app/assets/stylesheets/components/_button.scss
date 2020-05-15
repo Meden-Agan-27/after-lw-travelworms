@@ -1,0 +1,37 @@
+.btn-gradient {
+  background-color: $gold;
+  color: $indigo;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  border: 1px solid $gold;
+  &:hover {
+  background: linear-gradient($gold, white);
+  color: $indigo;
+}
+}
+
+.btn-primary {
+  color: $indigo;
+  background-color: $gold;
+  border: $gold;
+  // width: 120px;
+  // height: 40px;
+  &:hover {
+    background-color: $gold;
+    color: $indigo;
+    opacity: 0.6;
+  }
+}
+.btn-info {
+  color: $indigo;
+  background-color: $gold;
+  border: $gold;
+  &:hover {
+    background-color: $gold;
+    color: $indigo;
+    opacity: 0.6;
+  }
+}
+

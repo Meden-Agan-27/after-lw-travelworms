@@ -1,0 +1,53 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+.content {
+  min-height: calc(100vh - 66px);
+}
+.container {
+  margin-top: 25px;
+}
+.star {
+  color: #FFC107;
+}
+
+// .btn {
+//   background-color: $gold;
+//   color: white;
+// }
+
+a {
+  color:$indigo;
+}
+
+.link-title {
+  color: $indigo;
+  font-size: 28px;
+  text-decoration: none;
+  &:hover {
+  color: Grey;
+  text-decoration: none;
+  }
+}
+.icons {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: Grey;
+  }
+}
+
+.p-20 {
+  padding: 20px;
+}

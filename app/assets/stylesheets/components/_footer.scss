@@ -1,0 +1,61 @@
+// Please don't put CSS on the html. This can cause a lot of issues, and there are better ways to solve it.
+html {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+
+}
+
+
+.footer {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  background-color: $indigo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0px 50px;
+  color: white;
+  margin-top: -200%;
+}
+.footer-links {
+  display: flex;
+}
+.footer-links a {
+  color: white;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+  color: white;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  div.footer-copyright {
+    font-size: 8px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  div.footer-copyright {
+    font-size: 12px;
+  }
+}
+  @media (min-width: 768px) {
+  div.footer-copyright {
+    font-size: 16px;
+  }
+}
+

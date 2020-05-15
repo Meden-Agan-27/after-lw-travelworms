@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-l navbar-light navbar-lewagon">
+    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "nounbook.png" %>
+    <% end %>
+
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+                <% if false %>
+                <small class="navuser">
+                    <%= current_user.username.capitalize %></small>
+                <% end %>
+            <li>
+                <%= link_to "My Bookshelves", bookshelves_path, class: "nav-item" %>
+            </li>
+            <li>
+                <%= link_to "My Messages", "#", class: "nav-item" %>
+            </li>
+            <% if current_user.profile %>
+            <li>
+                <%= link_to "My Profile", profile_path(current_user.profile.id), class: "nav-item" %>
+            </li>
+
+            <% else %>
+            <li>
+                <%= link_to "Create Profile", "profiles/new", class: "nav-item" %>
+            </li>
+            <% end %>
+            <li>
+              <%= link_to 'Find Users', profiles_path, class: "nav-item"  %>
+            </li>
+            <li>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item" %>
+            </li>
+            </li>
+            <% else %>
+            <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-item" %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
