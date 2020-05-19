@@ -5,6 +5,8 @@ class Book < ApplicationRecord
   has_many :bookshelf_items, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookshelves, through: :bookshelf_items
+  has_many :book_tags
+  has_many :tags, through: :book_tags
 
   include PgSearch::Model
   pg_search_scope :search_by_country,
