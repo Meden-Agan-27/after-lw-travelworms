@@ -34,16 +34,26 @@ class TagTest < ActiveSupport::TestCase
     book = Book.new
     tag = Tag.create(tag_name: "Made me cry")
     tag2 = Tag.create(tag_name: "Made me laugh")
-    book.tags = tag
-    book.tags = tag2
-    assert_equal 2, book.tags.count
+    book.tags << tag
+    book.tags << tag2
+    assert_equal 2, book.tags.length
 
   end
 
   test "a tag can be attached to different books" do
+    book1 = Book.create(title: "I don't like books", country: "Germany", language: "Gaelic", author: "me", genre: "Fiction")
+    book2 = Book.create(title: "I like books", country: "France", language: "French", author: "you", genre: "Non-Fiction")
+    tag = Tag.create(tag_name: "Made me smile")
+    booktag = BookTag.create(book: book1, tag: tag)
+    booktag = BookTag.create(book: book2, tag: tag)
+    assert_equal true, book1.tags[0].id == book2.tags[0].id
   end
 
-  test "user can attached several unique tags to a book" do
+  test "a tag can be removed from a book without being destroyed" do
+    book1 = Book.create(title: "I don't like books", country: "Germany", language: "Gaelic", author: "me", genre: "Fiction")
+    tag1 = Tag.create(tag_name: "Made me smile")
+    booktag = BookTag.create(book: book1, tag: tag1)
+    booktag.destroy
+    assert_equal true, book1.tags.empty? && !tag1.nil?
   end
-
 end
