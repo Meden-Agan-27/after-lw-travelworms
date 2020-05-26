@@ -7,9 +7,18 @@ class TagsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Welcome to TravelWorms!"
   end
 
-  # test "user can attached several unique tags to a book" do
-    # book = Book.new
-    # tag1 = Tag.create(tag_name: "Made me smile")
-    # tag2 = Tag.create(tag_name: "Made me cry")
-  # end
+  test "user can attached a tag to a book" do
+    # setup
+    login_as users(:yves)
+    visit "/books/1"
+    # exercise
+    click_on "Add tag"
+    page.select("Good" from "tags_list")
+    click_on "Confirm"
+    # verify
+    assert_selector ".tag", text: "Good"
+    assert_selector ".tag", count: Book.last.tags.count
+    # teardown
+    # save_and_open_screenshot
+  end
 end
