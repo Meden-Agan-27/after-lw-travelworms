@@ -1,7 +1,9 @@
 book1:
+  id: 1
   title: "Find a job"
   author: "soon"
   genre: "non-fiction"
   country: "Sweden"
   language: "English"
+  image: "http://books.google.com/books/content?id=315oAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
 

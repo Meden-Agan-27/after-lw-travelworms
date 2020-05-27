@@ -1,0 +1,4 @@
+<%=  simple_form_for :tag, method: :get, url: books_path, html: {class:"mt-5", id:"search_form"} do |f| %>
+  <%= f.collection_select :tag_id, Tag.all, :id,  :tag_name %>
+  <%= f.submit 'Add', class: "btn btn-info w-100" %>
+<% end %>

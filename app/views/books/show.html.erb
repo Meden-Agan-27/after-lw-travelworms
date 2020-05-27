@@ -37,6 +37,23 @@
         </div>
         </div>
         <p id="big-justify"><%= @book.description %></p>
+        <% if signed_in? %>
+          <!-- start - this is a dropdown list for Tags -->
+          <div class="dropdown show mt-3">
+            <a class="btn btn-sm btn-primary tag" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add tag</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <small>
+                <%=  simple_form_for :tag, method: :get, url: books_path, html: {class:"mt-5", id:"search_form"} do |f| %>
+                  <%= f.collection_select :tag_id, Tag.all, :id,  :tag_name %>
+                  <%= f.submit 'Add', class: "btn btn-info w-100" %>
+                  <%= hidden_field_tag :book, @book.id %>
+                <% end %>
+              </small>
+            </div>
+          </div>
+          <!-- end dropdown-->
+        <% end %>
       </div>
 
       <br>
