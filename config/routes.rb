@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get '/bookshelves/:id/bookshelf_items', to: 'bookshelf_items#index', as: 'bookshelf_items'
   resources :books do
     resources :reviews
+    resources :book_tags
   end
 
   resources :bookshelves do

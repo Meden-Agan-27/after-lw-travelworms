@@ -13,9 +13,9 @@ class TagsTest < ApplicationSystemTestCase
     visit "/books/1"
     # exercise
     click_on "Add tag"
-    select("Good", from: "tags_list")
-    save_and_open_screenshot
-    click_on "Confirm"
+    check("Good")
+    click_on "Save Tag"
+    # save_and_open_screenshot
     # verify
     assert_selector ".tag", text: "Good"
     assert_selector ".tag", count: Book.last.tags.count
